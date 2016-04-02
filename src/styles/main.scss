@@ -66,6 +66,14 @@ ul {
   }
 }
 
+.account {
+  flex-grow: 1;
+}
+
+.about {
+  flex-grow: 1;
+}
+
 .app-footer {
   background-color: $primary-color;
   padding-top: 30px;

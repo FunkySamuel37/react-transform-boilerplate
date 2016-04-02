@@ -1,9 +1,35 @@
-import React, { Component } from 'react'
-import RaisedButton from 'material-ui/lib/raised-button';
+import React, { Component } from 'react';
 import Tabs from 'material-ui/lib/tabs/tabs';
 import Tab from 'material-ui/lib/tabs/tab';
 
 class NavBar extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      value: '/home',
+    };
+  }
+  componentWillMount() {
+    this.setState({
+      value: this._getSelectedIndex()
+    });
+  }
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      value: this._getSelectedIndex()
+    });
+  }
+  _getSelectedIndex() {
+    return this.context.router.isActive('/home') ? '/home' :
+      this.context.router.isActive('/account') ? '/account' :
+      this.context.router.isActive('/about') ? '/about' : '/home';
+  }
+  _handleTabsChange(value) {
+    console.log(value);
+    console.log(this.context);
+
+    this.context.router.push(value);
+  }
   render() {
     let styles = {
       tabs: {
@@ -19,19 +45,25 @@ class NavBar extends Component {
       inkBar: {
         height: '4px',
         marginTop: '-4px',
-        backgroundColor: '#FF5252',
       },
     };
     return (
       <div className="app-header">
-        <Tabs tabItemContainerStyle={{backgroundColor: 'transparent'}} style={styles.tabs} inkBarStyle={styles.inkBar}>
-          <Tab style={styles.tab} label="Home"/>
-          <Tab style={styles.tab} label="Account"/>
-          <Tab style={styles.tab} label="About"/>
+        <Tabs tabItemContainerStyle={{ backgroundColor: 'transparent' }}
+              style={styles.tabs} inkBarStyle={styles.inkBar}
+              onChange={this._handleTabsChange.bind(this)}
+              value={this.state.value}>
+          <Tab style={styles.tab} value="/home" label="Home" />
+          <Tab style={styles.tab} value="/account" label="Account" />
+          <Tab style={styles.tab} value="/about" label="About" />
         </Tabs>
       </div>
     );
-  };
+  }
 }
+
+NavBar.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default NavBar;
