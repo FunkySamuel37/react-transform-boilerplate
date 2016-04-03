@@ -1,2 +1,10 @@
 export const NICE = 'pink';
 export const SUPER_NICE = 'darkred';
+export const primaryColorDark     = '#455A74';
+export const primaryColor         = '#607DAB';
+export const primaryColorLight    = '#BFC8EC';
+export const primaryColorText     = '#FFFFFF';
+export const accentColor          = '#FF5252';
+export const primaryTextColor     = '#212121';
+export const secondaryTextColor   = '#727272';
+export const dividerColor         = '#B6B6B6';
