@@ -14,7 +14,6 @@ class AppLeftNav extends Component {
     super(props, context);
     this.state = {
       open: false,
-      selectedIndex: '/home'
     };
   }
 

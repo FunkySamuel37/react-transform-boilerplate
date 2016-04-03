@@ -66,13 +66,6 @@ ul {
   }
 }
 
-.account {
-  flex-grow: 1;
-}
-
-.about {
-  flex-grow: 1;
-}
 
 .app-footer {
   background-color: $primary-color;
@@ -83,3 +76,9 @@ ul {
   color: $primary-text-color;
   flex-shrink: 0;
 }
+
+.about, .account {
+  flex-grow: 1;
+}
+
+@import "about";

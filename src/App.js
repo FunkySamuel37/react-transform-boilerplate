@@ -40,6 +40,7 @@ class App extends Component {
     return (<AppBar
       title={ title }
       style={ styles.appBar }
+      className="app-header"
       onLeftIconButtonTouchTap={this._onLeftIconButtonTouchTap.bind(this)}/>);
   }
   _onLeftIconButtonTouchTap() {
